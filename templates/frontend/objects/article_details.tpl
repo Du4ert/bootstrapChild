@@ -168,38 +168,59 @@
 				<h2 class="sr-only">{translate key="plugins.themes.bootstrap3.article.details"}</h2>
 
 				{* How to cite *}
-				{if $citation}
-					<div class="panel panel-default how-to-cite">
-						<div class="panel-heading">
-							{translate key="submission.howToCite"}
-						</div>
-						<div class="panel-body">
-							<div id="citationOutput" role="region" aria-live="polite">
+			{if $citation}
+				<div class="panel panel-default citation_formats">
+					<div class="panel-heading clearfix">
+						{* {translate key="submission.howToCite"} *}
+						<div class="float-right dropdown citation_format_options">
+							{assign var="primaryCite" value=''}
+							{foreach from=$citationStyles item=item}
+								{if $item.isPrimary}
+									{assign var="primaryCite" value=$item.title}
+									{break}
+								{/if}
+							{/foreach}
+						<button  id="citation-button" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{translate key="plugins.themes.bootstrapChild.submissions.cite"} (<span class="citation-style"> {$primaryCite} </span>)
+						  <span class="caret"></span></button>
+						<ul class="dropdown-menu" role="menu">
+                    {foreach from=$citationStyles item="citationStyle"}
+                      <li>
+                        <a onclick="if (this.closest('.dropdown').classList.contains('open')) this.closest('.dropdown').classList.remove('open'); document.getElementById('citation-button').querySelector('.citation-style').innerHTML = this.textContent"
+                          aria-controls="citationOutput"
+                          href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
+                          data-load-citation
+                          data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
+                        >
+                          {$citationStyle.title|escape}
+                        </a>
+                      </li>
+                    {/foreach}
+                    <li role="presentation" class="divider"></li>
+                    {if count($citationDownloads)}
+                    <li class="dropdown-header">{translate key="submission.howToCite.downloadCitation"}</li>
+                      {foreach from=$citationDownloads item="citationDownload"}
+                        <li>
+                          <a class="lst-group-item" href="{url page="citationstylelanguage" op="download" path=$citationDownload.id params=$citationArgs}"><span class="glyphicon
+glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+                            {$citationDownload.title|escape}
+                          </a>
+                        </li>
+                      {/foreach}
+                  {/if}
+                  </ul>
+					</div>
+					</div>
+
+					{* Output list of all citation formats *}
+
+					<div class="panel-body">
+						{* Output the first citation format *}
+							<div id="citationOutput" class="citation_output">
 								{$citation}
 							</div>
-							<div class="btn-group">
-							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-controls="cslCitationFormats">
-							    {translate key="submission.howToCite.citationFormats"}
-									<span class="caret"></span>
-							  </button>
-							  <ul class="dropdown-menu" role="menu">
-									{foreach from=$citationStyles item="citationStyle"}
-										<li>
-											<a
-												aria-controls="citationOutput"
-												href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgs}"
-												data-load-citation
-												data-json-href="{url page="citationstylelanguage" op="get" path=$citationStyle.id params=$citationArgsJson}"
-											>
-												{$citationStyle.title|escape}
-											</a>
-										</li>
-									{/foreach}
-							  </ul>
-							</div>
-						</div>
 					</div>
-				{/if}
+				</div>
+			{/if}
 
 				{* Keywords *}
 				{if !empty($keywords[$currentLocale])}

@@ -10,7 +10,7 @@ class BootstrapChildThemePlugin extends ThemePlugin {
         $this->setParent('bootstrapthreethemeplugin');
         $bootstrapTheme = $this->getOption('bootstrapTheme');
         if (empty($bootstrapTheme) || $bootstrapTheme === 'bootstrap3') {
-        	$this->modifyStyle('bootstrap', 'styles/', array('addLess' => array('styles/main.less')));
+        	$this->modifyStyle('bootstrap', array('addLess' => array('styles/main.less')));
         } else {
         	$this->modifyStyle('bootstrapTheme-' . $bootstrapTheme, array('addLess' => array('styles/main.less')));
         }
