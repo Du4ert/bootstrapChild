@@ -7,7 +7,9 @@ class BootstrapChildThemePlugin extends ThemePlugin {
 	 * @return null
 	 */
 	public function init() {
+    // Register option for bootstrap themes
         $this->setParent('bootstrapthreethemeplugin');
+
         $bootstrapTheme = $this->getOption('bootstrapTheme');
         if (empty($bootstrapTheme) || $bootstrapTheme === 'bootstrap3') {
         	$this->modifyStyle('bootstrap', array('addLess' => array('styles/main.less')));
