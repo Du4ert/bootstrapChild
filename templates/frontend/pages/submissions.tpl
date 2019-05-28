@@ -49,8 +49,8 @@
 					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
 				</h2>
 			</div>
-			<p class="lead description">
-				{translate key="about.submissionPreparationChecklist.description"}
+			<p class="lead description submission-description-custom">
+				{translate key="plugins.themes.bootstrapChild.submissionPreparationChecklist.description"}
 			</p>
 			<ul class="list-group">
 				{foreach from=$submissionChecklist item=checklistItem}
@@ -67,7 +67,7 @@
 
 	{* Author Guidelines *}
 	{if $currentJournal->getLocalizedSetting('authorGuidelines')}
-		<div class="author_guidelines">
+		<div class="author_guidelines" id="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
 				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}

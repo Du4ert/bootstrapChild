@@ -52,11 +52,11 @@
 {assign var="lang" value=$galley->getLocale()}
 
 {* Don't be frightened. This is just a link *}
-<a class="galley-link btn  {if $isSupplementary}btn-default{else}btn-primary {translate key="plugins.themes.bootstrapChild.article.{$lang}"}{/if} {$type}" role="button" href="{url|escape page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
+<a class="galley-link btn  {if $isSupplementary}btn-default{else}btn-primary {if !empty($lang) && $lang !== $currentLocale}{translate key="plugins.themes.bootstrapChild.article.{$lang}"}{/if}{/if} {$type}" role="button" href="{url|escape page=$page op="view" path=$parentId|to_array:$galley->getBestGalleyId($currentJournal)}">
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
-		<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+		{* <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> *}
 		<span class="sr-only">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
@@ -69,11 +69,11 @@
 		{translate key="plugins.themes.bootstrapChild.issue.fulltext"}
 		{if !empty($lang) && $lang !== $currentLocale}
     	({translate key="plugins.themes.bootstrapChild.article.{$lang}"})
-    {/if}
-		{else}
+  		{/if}
+	{else}
 		{if $galley->getLabel() === 'supplementary'}
 			{translate key="plugins.themes.bootstrapChild.article.supplementary"}
-			{else}
+		{else}
 				{$galley->getLabel()}
 		{/if}
 	{/if}

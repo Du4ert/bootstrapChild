@@ -23,7 +23,7 @@
   <message key="plugins.themes.bootstrapChild.editorial.role.executivesecretary">Ответственный секретарь</message>
   <message key="plugins.themes.bootstrapChild.editorial.role.executivesecretaries">Ответственные секретари</message>
 
-  <message key="custom.issue.fullIssue">Полный выпуск</message>
+  <message key="plugins.themes.bootstrapChild.issue.fullIssue">Полный выпуск</message>
   <message key="plugins.themes.bootstrapChild.issue.summary.pages">Страницы</message>
   <message key="plugins.themes.bootstrapChild.issue.published">Опубликован</message>
   <message key="plugins.themes.bootstrapChild.issue.fulltext">Скачать полный текст</message>
@@ -53,7 +53,7 @@
   <message key="plugins.themes.bootstrapChild.submissions">Или отправьте материалы по адресу</message>
   <message key="plugins.themes.bootstrapChild.submissions.cite">Формат цитирования</message>
   <message key="search.advancedFilters">Дополнительные фильтры</message>
-  <message key="about.submissionPreparationChecklist.description">В качестве одного из этапов процесса отправки авторы должны проверить соответствие их материала следующим пунктам. Авторам могут быть возвращены материалы, не удовлетворяющие следующим требованиям:</message>
+  <message key="plugins.themes.bootstrapChild.submissionPreparationChecklist.description">В качестве одного из этапов процесса отправки авторы должны проверить соответствие их материала следующим пунктам. Авторам могут быть возвращены материалы, не удовлетворяющие следующим требованиям:</message>
 
   <message key="plugins.themes.bootstrapChild.about.contacts.tel">Телефон</message>
 

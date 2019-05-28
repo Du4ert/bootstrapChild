@@ -54,8 +54,14 @@
 							{translate key="search.dateFrom"}
 						</label>
 						<div class="form-inline">
+							{if $dateFrom === "--"}
+								{assign var="dateFrom" value=null}
+							{/if}
+							{if $dateTo === "--"}
+								{assign var="dateTo" value=null}
+							{/if}
 							<div class="form-group">
-								{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD"}
+								{html_select_date prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd year_empty="" month_empty="" day_empty="" field_order="YMD" }
 							</div>
 						</div>
 					</div>
@@ -87,7 +93,8 @@
 				{translate key="search.searchResults"}
 			</h2>
 			{iterate from=results item=result}
-				{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle showDatePublished=true hideGalleys=true}
+				{include file="frontend/objects/article_summary.tpl" article=$result.publishedArticle showDatePublished=true hideGalleys=false primaryGenreIds=["1"]}
+				{* primapyGenreIds задано вручную. Выяснить откуда берется и подставить. *}
 			{/iterate}
 		</div>
 

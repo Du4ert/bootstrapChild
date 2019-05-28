@@ -55,26 +55,26 @@
 			{* Page numbers for this article *}
 			{if $article->getPages()}
 				<p class="pages">
-					{$article->getPages()|escape}
+					{translate key="plugins.themes.bootstrapChild.issue.summary.pages"}: {$article->getPages()|replace: '-' : '–'|escape}
 				</p>
 			{/if}
 
 		{/if}
-
 		{if !$hideGalleys && $article->getGalleys()}
 			<div class="btn-group" role="group">
 				{foreach from=$article->getGalleys() item=galley}
+				{assign var="isSupplementary" value=false}
 					{if $primaryGenreIds}
 						{assign var="file" value=$galley->getFile()}
 						{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
-							{continue}
+							{assign var="isSupplementary" value=true}
 						{/if}
 					{/if}
 					{assign var="hasArticleAccess" value=$hasAccess}
 					{if ($article->getAccessStatus() == $smarty.const.ARTICLE_ACCESS_OPEN)}
 						{assign var="hasArticleAccess" value=1}
 					{/if}
-					{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess}
+					{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess isSupplementary=$isSupplementary}
 				{/foreach}
 			</div>
 		{/if}

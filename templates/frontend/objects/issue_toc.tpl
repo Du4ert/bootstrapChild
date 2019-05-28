@@ -85,7 +85,7 @@
 		<div class="galleys">
 			<div class="page-header">
 				<h2>
-					<small>{translate key="issue.fullIssue"}</small>
+					<small>{translate key="plugins.themes.bootstrapChild.issue.fullIssue"}</small>
 				</h2>
 			</div>
 			<div class="btn-group" role="group">
