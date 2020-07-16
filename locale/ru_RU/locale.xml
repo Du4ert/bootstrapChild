@@ -26,6 +26,7 @@
   <message key="plugins.themes.bootstrapChild.issue.fullIssue">Полный выпуск</message>
   <message key="plugins.themes.bootstrapChild.issue.summary.pages">Страницы</message>
   <message key="plugins.themes.bootstrapChild.issue.published">Опубликован</message>
+  <message key="plugins.themes.bootstrapChild.submissions.published">Опубликован онлайн</message>
   <message key="plugins.themes.bootstrapChild.issue.fulltext">Скачать полный текст</message>
   <message key="plugins.themes.bootstrapChild.issue.supplementary">Приложение</message>
   <message key="plugins.themes.bootstrapChild.editorial.principle">Положение о редколлегии МБЖ</message>
@@ -50,7 +51,12 @@
   <message key="plugins.themes.bootstrapChild.issue.details.pp">с</message>
   <message key="plugins.themes.bootstrapChild.issue.details.no">№</message>
   <message key="plugins.themes.bootstrapChild.issue.details.amp">и</message>
-  <message key="plugins.themes.bootstrapChild.submissions">Или отправьте материалы по адресу</message>
+  <message key="plugins.themes.bootstrapChild.submission.published">Опубликована</message>
+  <message key="plugins.themes.bootstrapChild.submissions.unregistered.send">Отправьте материал по адресу</message>
+  <message key="plugins.themes.bootstrapChild.submissions.registered.send">Или отправьте материал по адресу</message>
+  <message key="plugins.themes.bootstrapChild.submissions.title">Отправка материала</message>
+
+  <message key="plugins.themes.bootstrapChild.registration">В данный момент регистрация недоступна</message>
   <message key="plugins.themes.bootstrapChild.submissions.cite">Формат цитирования</message>
   <message key="search.advancedFilters">Дополнительные фильтры</message>
   <message key="plugins.themes.bootstrapChild.submissionPreparationChecklist.description">В качестве одного из этапов процесса отправки авторы должны проверить соответствие их материала следующим пунктам. Авторам могут быть возвращены материалы, не удовлетворяющие следующим требованиям:</message>
@@ -85,4 +91,5 @@
   <message key="plugins.themes.bootstrapChild.navigation.fee">Плата за публикацию</message>
   <message key="plugins.themes.bootstrapChild.navigation.retraction">Порядок ретракции</message>
 
+	<message key="default.groups.name.author">автор</message>
 </locale>

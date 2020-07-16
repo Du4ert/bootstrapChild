@@ -12,3 +12,12 @@ $('#return-to-top').click(function() {      // When arrow is clicked
         scrollTop : 0                       // Scroll to top of body
     }, 500);
 });
+
+$('#copy').click(function() {
+    var element = $('#citationOutput');
+    var temp = $("<input>");
+    $("body").append(temp);
+    var str = temp.val($.trim($(element).text())).select();
+    document.execCommand("copy");
+    temp.remove();
+});

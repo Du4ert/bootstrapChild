@@ -10,13 +10,14 @@
  * @uses $currentContext Journal|Press The current journal or press
  *}
 {include file="frontend/components/header.tpl" pageTitle="about.aboutContext"}
-
 <div id="main-content" class="page page_about">
+
 
 	{include file="frontend/components/breadcrumbs.tpl" currentTitleKey="about.aboutContext"}
 
 	{* Page Title *}
 	<div class="page-header">
+        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="" anchor="" sectionTitleKey=""}
 		<h1>{translate key="about.aboutContext"}</h1>
 	</div>
 	{* /Page Title *}

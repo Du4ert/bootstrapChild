@@ -22,7 +22,7 @@
 		{capture assign="sectionTitle"}{translate key=$sectionTitleKey}{/capture}
 	{/if}
 
-	<a href="{url page=$page op=$op path=$path anchor=$anchor}" class="btn btn-default btn-xs">
+	<a href="{url page=$page op=$op path=$path anchor=$anchor}{if $page === 'workflow'}/5{/if}" class="btn btn-default btn-xs">
 		<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 		{translate key="common.edit"}
 

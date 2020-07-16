@@ -31,10 +31,12 @@
 				{* Require the user to agree to the terms of the privacy policy *}
 				<div class="form-group optin optin-privacy">
 					<label>
-						<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
+						<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if} required>
 						{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
 						{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 					</label>
+					<span class="form-control-required">*</span>
+					<span class="sr-only">{translate key="common.required"}</span>
 				</div>
 				{* Ask the user to opt into public email notifications *}
 				<div class="form-group optin optin-email">

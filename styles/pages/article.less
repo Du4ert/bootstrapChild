@@ -5,6 +5,10 @@
 
 .article-main .authors {
   text-align: left;
+
+  .author-biography p{
+    margin: 0;
+  }
 }
 
 .article-links-custom {
@@ -31,4 +35,18 @@
 
 .list-group-item.doi a {
   font-weight: 400;
+}
+
+#copy {
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+  background: url('@{path_to_img}/clipboard30px.png');
+  cursor: pointer;
+  &:active {
+    position: relative;
+    top: 1px;
+    right: 1px;
+  }
 }

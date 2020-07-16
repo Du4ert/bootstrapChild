@@ -17,6 +17,7 @@
 @import "pages/editorial.less";
 @import "pages/submissions.less";
 @import "pages/op-view.less";
+@import "pages/user-login.less";
 
 
 
@@ -67,6 +68,8 @@ ul.show-custom_fix {
 // }
 //.......................................
 
+
+
 //Alert-info
 .alert-info {
   border: none;
@@ -79,6 +82,13 @@ ul.show-custom_fix {
 }
 div.alert.alert-info {
   margin: 0;
+}
+
+// Media heading
+.media-heading {
+  a {
+    font-weight: 400;
+  }
 }
 
 
@@ -98,6 +108,11 @@ div.alert.alert-info {
 
 
 @media screen and (max-width: 770px) {
+	body {
+		.pkp_structure_main {
+			text-align: left;
+		}
+	}
   .main-cover-custom {
     img {
     width: 40%;

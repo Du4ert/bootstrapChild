@@ -72,7 +72,7 @@
 			{if $issue->getDatePublished()}
 				<p class="published">
 					<strong>
-						{translate key="submissions.published"}:
+						{translate key="plugins.themes.bootstrapChild.submissions.published"}:
 					</strong>
 					{$issue->getDatePublished()|escape|date_format:$dateFormatShort}
 				</p>

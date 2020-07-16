@@ -21,6 +21,7 @@
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName()}
 
 <div id="main-content" class="page_index_journal" role="content">
+	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="" anchor="" sectionTitleKey=""}
 
 	{call_hook name="Templates::Index::journal"}
 <div class="row journal-description journal-description-main">

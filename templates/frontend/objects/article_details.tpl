@@ -25,6 +25,7 @@
 				</small>
 			{/if}
 		</h1>
+		{include file="frontend/components/editLink.tpl" page="workflow" op="index" path=$article->getBestArticleId($currentJournal) anchor="" sectionTitleKey="about.authorGuidelines"}
 	</header>
 
 	<div class="row">
@@ -53,7 +54,7 @@
 				{* Published date *}
 				{if $article->getDatePublished()}
 					<div class="list-group-item date-published">
-						{capture assign=translatedDatePublished}{translate key="submissions.published"}{/capture}
+						{capture assign=translatedDatePublished}{translate key="plugins.themes.bootstrapChild.submission.published"}{/capture}
 						<strong>{translate key="semicolon" label=$translatedDatePublished}</strong>
 						{$article->getDatePublished()|date_format}
 					</div>
@@ -80,7 +81,10 @@
 						</div>
 					{/if}
 				{/foreach}
-
+				<div class="list-group-item pages">
+					<strong>{translate key="plugins.themes.bootstrapChild.issue.summary.pages"}:</strong>
+					{$article->getStartingPage()|escape}–{$article->getEndingPage()|escape}
+				</div>
 
 				{* Article Galleys *}
 				{if $primaryGalleys || $supplementaryGalleys}
@@ -120,6 +124,7 @@
 						{foreach from=$article->getAuthors() item=author}
 							<div class="author">
 								<strong>{$author->getFullName()|escape}</strong>
+								<div class="author-biography">{$author->getLocalizedBiography()}</div>
 								{if $author->getLocalizedAffiliation()}
 									<div class="article-author-affilitation">
 										{$author->getLocalizedAffiliation()|escape}
@@ -182,6 +187,7 @@
 							{/foreach}
 						<button  id="citation-button" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">{translate key="plugins.themes.bootstrapChild.submissions.cite"} (<span class="citation-style"> {$primaryCite} </span>)
 						  <span class="caret"></span></button>
+						  <div id="copy" title="Copy" onclick="false"></div>
 						<ul class="dropdown-menu" role="menu">
                     {foreach from=$citationStyles item="citationStyle"}
                       <li>
@@ -329,7 +335,7 @@ glyphicon glyphicon-download-alt" aria-hidden="true"></span>
 
 				{* Author biographies *}
 				{assign var="hasBiographies" value=0}
-				{foreach from=$article->getAuthors() item=author}
+{* 				{foreach from=$article->getAuthors() item=author}
 					{if $author->getLocalizedBiography()}
 						{assign var="hasBiographies" value=$hasBiographies+1}
 					{/if}
@@ -364,7 +370,7 @@ glyphicon glyphicon-download-alt" aria-hidden="true"></span>
 							{/foreach}
 						</div>
 					</div>
-				{/if}
+				{/if} *}
 
 				{call_hook name="Templates::Article::Details"}
 

@@ -44,7 +44,8 @@
       </tr>
     </thead>
     <tbody class="issues-body-custom">      {assign var=first value=true}
-    {foreach from=$issues|@array_reverse item="issue"}
+    {* {foreach from=$issues|@array_reverse item="issue"}   обратная нумерация выпусков*}
+    {foreach from=$issues item="issue"}
     {assign var=year value=$issue->_data.year}
     {assign var=vol value=$issue->_data.volume}
     {assign var=num value=$issue->_data.number}

@@ -18,7 +18,7 @@
 		</h1>
 		<small class="date">
 			<span class="glyphicon glyphicon-calendar"></span>
-			{translate key="announcement.postedOn" postDate=$announcement->getDatePosted()|escape}
+			{translate key="announcement.postedOn" postDate=$announcement->getDatePosted()|date_format:"%e.%m.%Y"}
 		</small>
 	</header>
 	<div class="description">

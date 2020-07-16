@@ -17,6 +17,7 @@
 
 	{* Page Title *}
 	<div class="page-header">
+        {include file="frontend/components/editLink.tpl" page="management" op="settings" path="" anchor="" sectionTitleKey=""}
 		<h1>{translate key="plugins.themes.bootstrapChild.editorial.title"}</h1>
 	</div>
 	{* /Page Title *}

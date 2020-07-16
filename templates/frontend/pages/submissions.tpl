@@ -18,7 +18,8 @@
 
 	{* Page Title *}
 	<div class="page-header">
-		<h1>{translate key="about.submissions"}</h1>
+		{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
+		<h1>{translate key="plugins.themes.bootstrapChild.submissions.title"}</h1>
 	</div>
 	{* /Page Title *}
 
@@ -29,16 +30,22 @@
 		<div class="alert alert-info">
 			{translate key="about.onlineSubmissions.submissionActions" newSubmission=$newSubmission viewSubmissions=$viewSubmissions}
 		</div>
-	{else}
-		{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
+		<div class="alert alert-info">
+			{translate key="plugins.themes.bootstrapChild.submissions.registered.send"} <a href="mailto:mbj@imbr-ras.ru">mbj@imbr-ras.ru</a>.
+		</div>
+
+ 	{else}
+	{* Закомментировано пока регистрация запрещена *}
+{* 		{capture assign="login"}<a href="{url page="login"}">{translate key="about.onlineSubmissions.login"}</a>{/capture}
 		{capture assign="register"}<a href="{url page="user" op="register"}">{translate key="about.onlineSubmissions.register"}</a>{/capture}
 		<div class="alert alert-info">
 			{translate key="about.onlineSubmissions.registrationRequired" login=$login register=$register}
-		</div>
-	{/if}
-	<div class="alert alert-info">
-	{translate key="plugins.themes.bootstrapChild.submissions"} <a href="mailto:mbj@imbr-ras.ru">mbj@imbr-ras.ru</a>.
+		</div> *}
+	<div class="alert alert-info submission-email">
+			{translate key="plugins.themes.bootstrapChild.submissions.unregistered.send"} <a href="mailto:mbj@imbr-ras.ru">mbj@imbr-ras.ru</a>.
 	</div>
+
+	{/if}
 
 	{* Submission Checklist *}
 	{if $submissionChecklist}
@@ -46,7 +53,6 @@
 			<div class="page-header">
 				<h2>
 					{translate key="about.submissionPreparationChecklist"}
-					{include file="frontend/components/editLink.tpl" page="management" op="settings" path="publication" anchor="submissionStage" sectionTitleKey="about.submissionPreparationChecklist"}
 				</h2>
 			</div>
 			<p class="lead description submission-description-custom">
@@ -70,7 +76,6 @@
 		<div class="author_guidelines" id="author_guidelines">
 			<h2 class="page-header">
 				{translate key="about.authorGuidelines"}
-				{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="guidelines" sectionTitleKey="about.authorGuidelines"}
 			</h2>
 			{$currentJournal->getLocalizedSetting('authorGuidelines')}
 		</div>
@@ -82,7 +87,7 @@
 		<div class="copyright-notice">
 			<h2 class="page-header">
 				{translate key="about.copyrightNotice"}
-				</span>{include file="frontend/components/editLink.tpl" page="management" op="settings" path="journal" anchor="policies" sectionTitleKey="about.copyrightNotice"}
+				</span>
 			</h2>
 			{$currentJournal->getLocalizedSetting('copyrightNotice')}
 		</div>
