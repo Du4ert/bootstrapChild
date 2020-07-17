@@ -13,6 +13,7 @@
  * @uses $issueGalleys array Galleys for the entire issue
  * @uses $hasAccess bool Can this user access galleys for this context?
  * @uses $showGalleyLinks bool Show galley links to users without access?
+* @uses $page string to display current site page
  *}
 <div class="issue-toc">
 
@@ -27,7 +28,7 @@
 
 		{* Issue cover image and description*}
 		{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
-		{if $issueCover}
+		{if $issueCover  && $page!=="index"}
 			{assign var="issueDetailsCol" value="8"}
 			<div class="thumbnail col-md-4">
 				<a class="cover" href="{url|escape op="view" page="issue" path=$issue->getBestIssueId()}">
@@ -38,7 +39,7 @@
 
 		<div class="issue-details col-md-{$issueDetailsCol}">
 
-			{if $issue->hasDescription()}
+			{if $issue->hasDescription() && $page!=="index"}
 				<div class="description">
 					{$issue->getLocalizedDescription()|strip_unsafe_html}
 				</div>
@@ -69,7 +70,7 @@
 			{/foreach}
 
 			{* Published date *}
-			{if $issue->getDatePublished()}
+			{if $issue->getDatePublished()  && $page!=="index"}
 				<p class="published">
 					<strong>
 						{translate key="plugins.themes.bootstrapChild.submissions.published"}:

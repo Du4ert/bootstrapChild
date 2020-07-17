@@ -75,13 +75,15 @@
 		<section class="current_issue">
 			<header class="page-header">
 				<h2>
-					{translate key="journal.currentIssue"}
+				{translate key="journal.currentIssue"}
 				</h2>
 			</header>
 			<p class="current_issue_title lead">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
+				<a href="{url|escape op="view" page="issue" path=$issue->getBestIssueId()}">
+					{$issue->getIssueIdentification()|strip_unsafe_html}
+				</a>
 			</p>
-			{include file="frontend/objects/issue_toc.tpl"}
+			{include file="frontend/objects/issue_toc.tpl" page="index"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
 				{translate key="journal.viewAllIssues"}
 				<span class="glyphicon glyphicon-chevron-right"></span>
